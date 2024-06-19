@@ -5,11 +5,10 @@ public class NetworkInterfaceStaticMethods {
 
     public static void main(String[] args) throws Exception {
         // printAllNetworkInterfaces();
-        getByIndex(1);
+        // getByIndex(1);
         // getByName("lo0");
-        // InetAddress address = InetAddress.getLocalHost();
-        // getByInetAddress(address);
-
+        InetAddress address = InetAddress.getLocalHost();
+        getByInetAddress(address);
     }
 
     public static void printAllNetworkInterfaces() {
@@ -32,7 +31,7 @@ public class NetworkInterfaceStaticMethods {
         try {
             System.out.println("\nNetwork Interface by Index:");
             System.out.println("------------------------------");
-            NetworkInterface niByIndex = NetworkInterface.getByIndex(index); // Change index as needed
+            NetworkInterface niByIndex = NetworkInterface.getByIndex(index);
             if (niByIndex != null) {
                 System.out.println("\nName: " + niByIndex.getName());
                 System.out.println("Display Name: " + niByIndex.getDisplayName());
@@ -47,8 +46,9 @@ public class NetworkInterfaceStaticMethods {
     public static void getByName(String name) {
         try {
             System.out.println("\nNetwork Interface by Name:");
-            System.out.println("------------------------------");
+            System.out.println("----------s --------------------");
             NetworkInterface niByName = NetworkInterface.getByName(name);
+            System.out.println(niByName + " 9999 " + name);
 
             if (niByName != null) {
                 System.out.println("Name: " + niByName.getName());
@@ -66,6 +66,7 @@ public class NetworkInterfaceStaticMethods {
             System.out.println("\nNetwork Interface by InetAddress:");
             System.out.println("------------------------------");
             NetworkInterface niByInetAddress = NetworkInterface.getByInetAddress(address);
+            System.out.println(niByInetAddress);
             if (niByInetAddress != null) {
                 System.out.println("Name: " + niByInetAddress.getName());
                 System.out.println("Display Name: " + niByInetAddress.getDisplayName());
