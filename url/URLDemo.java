@@ -10,7 +10,7 @@ public class URLDemo {
 
             // URL url = new
             // URL("https://docs.oracle.com/javase/9/docs/api/java/net/URL.html#getRef--");
-            URL url = new URL("https://github.com/R3yz0n?tab=repositories");
+            URL url = new URL("https://user:sagar@github.com/R3yz0n?tab=repositories");
 
             System.out.println("Protocol: " + url.getProtocol());
             System.out.println("Host: " + url.getHost());
