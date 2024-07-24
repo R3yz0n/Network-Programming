@@ -1,20 +1,15 @@
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
 
 public class ClientSocketEg {
     public static void main(String[] args) {
         try {
-            Scanner s = new Scanner(System.in);
-            String message = s.nextLine();
 
-            Socket cSocket = new Socket("127.0.0.1", 2024);
-
-            DataOutputStream dout = new DataOutputStream(cSocket.getOutputStream());
-            dout.writeUTF(message);
-
-            dout.flush();
-            dout.close();
+            Socket socket = new Socket("localhost", 8090); // Connect to server on localhost, port 8080
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String messageFromServer = in.readLine();
+            System.out.println("Server says: " + messageFromServer);
+            socket.close();
         } catch (IOException e) {
             System.out.println("Error: " + e);
         }
