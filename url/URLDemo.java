@@ -1,31 +1,58 @@
 import java.net.MalformedURLException;
-import java.net.*;
 import java.net.URL;
 
 public class URLDemo {
-    @SuppressWarnings("deprecation")
-    public static void main(String[] args) {
-        try {
-            // URL url = new URL("http://facebook.com");
 
-            // URL url = new
-            // URL("https://docs.oracle.com/javase/9/docs/api/java/net/URL.html#getRef--");
-            URL url = new URL("https://user:sagar@github.com/R3yz0n?tab=repositories");
+        // Main driver method
+        @SuppressWarnings("deprecation")
+        public static void main(String[] args)
+                        throws MalformedURLException {
 
-            System.out.println("Protocol: " + url.getProtocol());
-            System.out.println("Host: " + url.getHost());
-            System.out.println("Port: " + url.getPort());
-            System.out.println("Path: " + url.getPath());
-            System.out.println("Default Port: " + url.getDefaultPort());
-            System.out.println("Query: " + url.getQuery());
-            System.out.println("authority: " + url.getAuthority());
-            System.out.println("file: " + url.getFile());
-            System.out.println("reference: " + url.getRef());
-            System.out.println("userinfo: " + url.getUserInfo());
+                // Creating a URL with string representation
+                URL url1 = new URL(
+                                "https://prem@www.premgautam.com/about?job=programming#butwal");
 
-        } catch (MalformedURLException e) {
-            System.out.println(e);
+                // Creating a URL with a protocol,hostname,and path
+                URL url2 = new URL("http", "www.geeksforgeeks.org",
+                                "/jvm-works-jvm-architecture/");
+
+                URL url3 = new URL(
+                                "https://www.google.co.in/search?"
+                                                + "q=gnu&rlz=1C1CHZL_enIN71"
+                                                + "4IN715&oq=gnu&aqs=chrome..69i57j6"
+                                                + "9i60l5.653j0j7&sourceid=chrome&ie=UTF"
+                                                + "-8#q=geeks+for+geeks+java");
+
+                // string representation of the URL
+                System.out.println(url1.toString());
+                System.out.println(url2.toString());
+
+                System.out.println();
+                System.out.println("Different components of the URL3-");
+
+                // protocol for the URL
+                System.out.println("Protocol:- " + url1.getProtocol());
+
+                // hostname of the url
+                System.out.println("Hostname:- " + url1.getHost());
+
+                // default port
+                System.out.println("Default port:- " + url1.getDefaultPort());
+
+                // query part of URL
+                System.out.println("Query:- " + url1.getQuery());
+
+                // path of URL
+                System.out.println("Path:- " + url1.getPath());
+
+                // file name
+                System.out.println("File:- " + url1.getFile());
+
+                // reference
+                System.out.println("Reference:- " + url1.getRef());
+
+                // user info
+                System.out.println("User info: " + url1.getUserInfo());
+
         }
-
-    }
 }

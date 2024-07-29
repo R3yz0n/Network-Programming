@@ -1,29 +1,51 @@
+
+// Java program to illustrate various URI class methods 
 import java.net.*;
 
-public class URIDemo {
-    public static void main(String[] args) {
-        try {
-            // URI uri = new URI("https://facebook.com");
+class URIDemo {
+    public static void main(String[] args) throws Exception {
+        String uribase = "https://www.geeksforgeeks.org/";
+        String urirelative = "languages/../java";
+        String str = "https://prem@www.google.co.in:3000/?gws_rd=ssl#" + ""
+                + "q=networking+in+java+geeksforgeeks" + ""
+                + "&spf=1496918039682";
+        // Constructor to create a new URI by parsing the string
+        URI uriBase = new URI(uribase);
 
-            URI uri = new URI("https://docs.oracle.com?tab=repositories/docs/api/java/net/URL.html#getRef");
-            // URI uri = new URI("https://github.com/R3yz0n?tab=repositories");
+        // create() method
+        URI uri = URI.create(str);
 
-            System.out.println("Scheme: " + uri.getScheme());
+        System.out.println("Base URI = " + uriBase.toString());
 
-            System.out.println("Host: " + uri.getHost());
-            System.out.println("Port: " + uri.getPort());
-            System.out.println("Path: " + uri.getPath());
+        URI uriRelative = new URI(urirelative);
+        System.out.println("Relative URI = " + uriRelative.toString());
 
-            System.out.println("Query: " + uri.getQuery());
-            System.out.println("authority: " + uri.getAuthority());
-            // System.out.println("file: " + uri.getFile()); //not valid
-            // System.out.println("file: " + uri.getDefaultPort()); // not valid
+        URI uriResolved = uriBase.resolve(uriRelative);
+        System.out.println("Resolved URI = " + uriResolved.toString());
 
-            System.out.println("userinfo: " + uri.getUserInfo());
+        URI uriRelativized = uriBase.relativize(uriResolved);
+        System.out.println("Relativized URI = " + uriRelativized.toString());
 
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        System.out.println(uri.normalize().toString());
 
+        System.out.println("Scheme = " + uri.getScheme());
+
+        System.out.println("Raw Scheme = " + uri.getRawSchemeSpecificPart());
+
+        System.out.println("Scheme-specific part = " + uri.getSchemeSpecificPart());
+
+        System.out.println("User Info = " + uri.getUserInfo());
+
+        System.out.println("Authority = " + uri.getAuthority());
+
+        System.out.println("Port = " + uri.getPort());
+
+        System.out.println("Query: " + uri.getQuery());
+
+        System.out.println("Host: " + uri.getHost());
+
+        System.out.println("Fragment : " + uri.getFragment());
+
+        System.out.println("Path : " + uri.getPath());
     }
 }
